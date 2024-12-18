@@ -6,6 +6,10 @@ logs/*
 !logs/.gitkeep
 data/*
 !data/.gitkeep
+lightning_logs
+notebooks/
+pretrained/
+tmp/
 
 ### VisualStudioCode template
 .vscode/*

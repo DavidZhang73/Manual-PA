@@ -1,0 +1,16 @@
+data:
+  class_path: src.data_modules.IMADataModule
+  init_args:
+    dataset_path: data/ikea-manual-assembly
+    train_source: ikea-manual
+    val_source: ikea-manual
+    test_source: ikea-manual
+    train_type: synthetic-stepwise
+    val_type: synthetic-stepwise
+    test_type: synthetic-stepwise
+    train_split_pathname: splits/table.txt
+    val_split_pathname: splits/table.txt
+    test_split_pathname: splits/table.txt
+trainer:
+  log_every_n_steps: 10
+  reload_dataloaders_every_n_epochs: 1

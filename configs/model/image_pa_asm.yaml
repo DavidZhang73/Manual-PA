@@ -1,0 +1,43 @@
+model:
+  class_path: modules.ImagePAAssemblyNetModule
+  init_args:
+    pretrained_seg_model_ckpt_pathname: /home/users/u6921098/projects/IkeaManualAssembly/logs/IkeaManualAssembly/gnwqv8ge/checkpoints/epoch=937-mIoU=0.5712.ckpt
+data:
+  data_features:
+    - img
+    - pts
+    - masks
+    - similar_parts_cnt
+    - bbox_size
+    - ins_one_hot
+    - parts_cam_dof
+    - similar_parts_edge_indices
+  normalize_img: False
+optimizer:
+  class_path: AdamW
+  init_args:
+    lr: 1e-3
+    weight_decay: 1e-5
+lr_scheduler:
+  class_path: StepLR
+  init_args:
+    step_size: 50
+    gamma: 0.9
+trainer:
+  max_epochs: 1000
+  log_every_n_steps: 100
+  callbacks:
+    # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.ModelCheckpoint.html#lightning.pytorch.callbacks.ModelCheckpoint
+    - class_path: ModelCheckpoint
+      init_args:
+        filename: epoch={epoch:02d}-SCD={validate/SCD:.4f}
+        monitor: validate/SCD
+        verbose: false
+        save_last: true
+        save_top_k: 1
+        mode: min
+        auto_insert_metric_name: false
+    # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.LearningRateMonitor.html#lightning.pytorch.callbacks.LearningRateMonitor
+    - class_path: LearningRateMonitor
+      init_args:
+        logging_interval: epoch

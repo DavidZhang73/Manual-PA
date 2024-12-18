@@ -3,7 +3,7 @@ numpy
 matplotlib
 pandas
 scipy
-notebook
+ipykernel
 
 # --------- pytorch --------- #
 # torch
@@ -12,15 +12,23 @@ notebook
 pytorch-lightning
 jsonargparse[signatures]
 torchmetrics
+transformers
 
 # --------- loggers --------- #
-# tensorboard
 wandb
-# neptune-client
-# mlflow
-# comet-ml
 
 # --------- custom --------- #
+# pytorch3d
+scikit-image
+imageio
+plotly
+opencv-python
+trimesh
+einops
+
+# --------- Rendering --------- #
+# blenderproc
+# bpy
 
 # --------- misc --------- #
 tqdm

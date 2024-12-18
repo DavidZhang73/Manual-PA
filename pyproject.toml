@@ -5,7 +5,6 @@ select = [
     "F",  # pyflakes
     "E",  # pycodestyle errors
     "W",  # pycodestyle warnings
-    "UP", # pyupgrade
 ]
 ignore = ["F401"]
 extend-include = ["*.ipynb"]

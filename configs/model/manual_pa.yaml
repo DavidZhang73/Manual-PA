@@ -1,0 +1,41 @@
+model:
+  class_path: modules.ManualPAAssemblyNetModule
+data:
+  data_features:
+    - imgs
+    - pts
+    - masks
+    - similar_parts_cnt
+    - order
+    - group
+    - parts_cam_dof
+  step_mode: lastonly
+optimizer:
+  class_path: AdamW
+  init_args:
+    lr: 1e-5
+    weight_decay: 1e-4
+lr_scheduler:
+  class_path: StepLR
+  init_args:
+    step_size: 50
+    gamma: 0.9
+trainer:
+  max_epochs: 1000
+  check_val_every_n_epoch: 10
+  gradient_clip_val: 20
+  callbacks:
+    # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.ModelCheckpoint.html#lightning.pytorch.callbacks.ModelCheckpoint
+    - class_path: ModelCheckpoint
+      init_args:
+        filename: epoch={epoch:02d}-PA={validate/PA:.4f}
+        monitor: validate/PA
+        verbose: false
+        save_last: true
+        save_top_k: 3
+        mode: max
+        auto_insert_metric_name: false
+    # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.LearningRateMonitor.html#lightning.pytorch.callbacks.LearningRateMonitor
+    - class_path: LearningRateMonitor
+      init_args:
+        logging_interval: epoch

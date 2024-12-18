@@ -13,7 +13,7 @@ trainer:
   min_steps: null
   max_time: null
 
-  num_sanity_val_steps: 2
+  num_sanity_val_steps: 0
   check_val_every_n_epoch: 1
   val_check_interval: null
   overfit_batches: 0.0
@@ -40,7 +40,7 @@ trainer:
     class_path: WandbLogger
     init_args:
       save_dir: logs
-      project: mnist
+      project: IkeaManualAssembly
       log_model: false
   log_every_n_steps: 50
 
@@ -49,11 +49,11 @@ trainer:
     # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.ModelCheckpoint.html#lightning.pytorch.callbacks.ModelCheckpoint
     - class_path: ModelCheckpoint
       init_args:
-        filename: epoch={epoch:02d}-val_acc={val/acc:.4f}
-        monitor: val/acc
-        verbose: true
+        filename: epoch={epoch:02d}-mIoU={validate/mIoU:.4f}
+        monitor: validate/mIoU
+        verbose: false
         save_last: true
-        save_top_k: 2
+        save_top_k: 1
         mode: max
         auto_insert_metric_name: false
     # https://lightning.ai/docs/pytorch/latest/api/lightning.pytorch.callbacks.EarlyStopping.html#lightning.pytorch.callbacks.EarlyStopping
@@ -94,7 +94,7 @@ trainer:
   inference_mode: true
   default_root_dir: null
   benchmark: null
-  deterministic: false
+  deterministic: null
   enable_progress_bar: true
   enable_checkpointing: true
   enable_model_summary: true

@@ -1,5 +1,5 @@
-from src.data_modules.mnist import MNISTDataModule
+from .ima import IMADataModule
 
 __all__ = [
-    "MNISTDataModule",
+    "IMADataModule",
 ]

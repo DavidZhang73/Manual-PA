@@ -1,0 +1,16 @@
+data:
+  class_path: src.data_modules.IMADataModule
+  init_args:
+    dataset_path: data/ikea-manual-assembly
+    train_source: partnet
+    val_source: partnet
+    test_source: partnet
+    train_type: synthetic-stepwise
+    val_type: synthetic-stepwise
+    test_type: synthetic-stepwise
+    train_split_pathname: splits/image_pa/chair.train.txt
+    val_split_pathname: splits/image_pa/chair.val.txt
+    test_split_pathname: splits/image_pa/chair.test.txt
+    train_num_views: 1
+trainer:
+  reload_dataloaders_every_n_epochs: 1
