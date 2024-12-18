@@ -60,7 +60,13 @@ pip install -r requirements.txt
 
 ### Data Preparation
 
-TODO
+```bash
+mkdir data/ikea-manual-assembly
+huggingface-cli download --repo-type dataset DavidZhang73/ManualPADatasets --local-dir data/ikea-manual-assembly
+cd data/ikea-manual-assembly
+unzip ikea-manual.zip
+unzip partnet.zip
+```
 
 ### Training Stage 1: Permutation Learning
 
