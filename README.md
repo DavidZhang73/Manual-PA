@@ -18,9 +18,9 @@
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
   </div>
   <br>
-  <video controls loop muted autoplay width="100%">
-    <source src="imgs/teaser.mp4" type="video/mp4">
-  </video>
+
+https://github.com/user-attachments/assets/aa05559a-9348-469c-8167-70a03037de63
+
 </div>
 
 ## Abstract
