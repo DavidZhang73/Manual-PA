@@ -79,7 +79,7 @@ python src/main.py fit -c configs/data/partnet_synthetic_stepwise.yaml -c config
 **Inference for all categories**
 
 ```bash
-python src/main.py test -c configs/data/partnet_synthetic_stepwise.yaml -c configs/model/manual_pa_order.yaml --trainer.logger.name ManualPA_Order_Test --ckpt_path logs/IkeaManualAssembly/<run_id>/checkpoints/<best>.ckpt
+python src/main.py test -c configs/data/partnet_synthetic_stepwise.yaml -c configs/model/manual_pa_order.yaml --trainer.logger.name ManualPA_Order_Test --ckpt_path logs/ManualPA/<run_id>/checkpoints/<best>.ckpt
 ```
 
 ### Training Stage 2: Part Pose Estimation
@@ -87,13 +87,13 @@ python src/main.py test -c configs/data/partnet_synthetic_stepwise.yaml -c confi
 **Train on Chair**
 
 ```bash
-python src/main.py fit -c configs/data/partnet_synthetic_stepwise_chair.yaml -c configs/model/manual_pa.yaml --trainer.logger.name ManualPA_Chair --data.order_pathname logs/IkeaManualAssembly/<run_id>/pred_orders.json
+python src/main.py fit -c configs/data/partnet_synthetic_stepwise_chair.yaml -c configs/model/manual_pa.yaml --trainer.logger.name ManualPA_Chair --data.order_pathname logs/ManualPA/<run_id>/pred_orders.json
 ```
 
 **Train on Table**
 
 ```bash
-python src/main.py fit -c configs/data/partnet_synthetic_stepwise_table.yaml -c configs/model/manual_pa.yaml --trainer.logger.name ManualPA_Table --data.order_pathname logs/IkeaManualAssembly/<run_id>/pred_orders.json
+python src/main.py fit -c configs/data/partnet_synthetic_stepwise_table.yaml -c configs/model/manual_pa.yaml --trainer.logger.name ManualPA_Table --data.order_pathname logs/ManualPA/<run_id>/pred_orders.json
 ```
 
 ## Citation
